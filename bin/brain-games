@@ -1,2 +1,4 @@
+#1/usr/bin/enc php
+
 <?php
 echo "php bin/brain-games.php\nWelcome to the Brain Games!";
