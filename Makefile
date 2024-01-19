@@ -5,7 +5,7 @@ install:
 	echo "vendor/" >> .gitignore
 
 brain-games:
-	. bin/brain-games
+	./bin/brain-games
 
 validate:
 	composer validate

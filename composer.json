@@ -2,7 +2,9 @@
     "name": "hexlet/code",
     "description": "First project on Hexlet",
     "license": "MIT",
-    "bin": ["bin/brain/games"],
+    "bin": [
+	"bin/brain-games"
+	],
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
@@ -14,5 +16,7 @@
             "email": "kim.vadim.alexandrovich@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+	"wp-cli/php-cli-tools": "^0.11.22"
+}
 }
