@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+namespace BrainGames\Games;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function cli\line;
+use function cli\prompt;
+
+function findMissingNumber()
+{
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('What number is missing in the progression?');
+
+    $correctAnswerCount = 0;
+    $consecutiveCorrectCount = 0;
+    $roundCount = 0;
+
+    $step = rand(1, 10);
+    for ($i = rand(0, 20); $i <= 10; $i++) {
+        $progression = $i + $step;
+    }
+    return $progression;
+}
+
+echo findMissingNumber();
