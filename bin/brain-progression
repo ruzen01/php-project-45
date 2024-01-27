@@ -10,27 +10,48 @@ use function cli\prompt;
 
 function findMissingNumber()
 {
-//    line('Welcome to the Brain Games!');
-//    $name = prompt('May I have your name?');
-//    line("Hello, %s!", $name);
-//    line('What number is missing in the progression?');
-
+    
     $correctAnswerCount = 0;
     $consecutiveCorrectCount = 0;
     $roundCount = 0;
 
-    //$step = rand(1, 10);
-    
-    for ($i = rand(0, 10), $step = rand(1, 10); $i <= 100; $i = $i + $step) {
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('What number is missing in the progression?');
+
+    while ($roundCount < 3) {
+
+    $arrayOfProgression = [];
+    $length = rand(5, 10);
+    for ($i = rand(0, 10), $step = rand(1, 10); count($arrayOfProgression) < $length; $i = $i + $step) {
         $arrayOfProgression[] = $i;
     }
-    print_r($arrayOfProgression);
+    
     $randKey = array_rand($arrayOfProgression);
-    $correctAnswer = $arrayOfProgression[$randKey];
+    $invisNumber = $arrayOfProgression[$randKey];
     $arrayOfProgression[$randKey] = '..';
-    echo $randKey, "\n", $arrayOfProgression[$randKey];
-    print_r($arrayOfProgression);
-    echo $correctAnswer;
-    }
+    
+    line("Question: %s", implode(' ', $arrayOfProgression));
+    $answer = prompt('Your answer');
 
-echo findMissingNumber();
+
+if ($answer == $invisNumber) {
+    line("Correct!");
+    $correctAnswerCount++;
+    $consecutiveCorrectCount++;
+    $roundCount++;
+} else {
+    line("'$answer' is wrong answer ;(. Correct answer was '$invisNumber'.\nLet's try again, $name!");
+    $consecutiveCorrectCount = 0;
+    return;
+}
+
+if ($consecutiveCorrectCount == 3) {
+    line("Congratulations, %s!", $name);
+    return;
+}
+    }
+}
+
+findMissingNumber();
