@@ -10,20 +10,27 @@ use function cli\prompt;
 
 function findMissingNumber()
 {
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What number is missing in the progression?');
+//    line('Welcome to the Brain Games!');
+//    $name = prompt('May I have your name?');
+//    line("Hello, %s!", $name);
+//    line('What number is missing in the progression?');
 
     $correctAnswerCount = 0;
     $consecutiveCorrectCount = 0;
     $roundCount = 0;
 
-    $step = rand(1, 10);
-    for ($i = rand(0, 20); $i <= 10; $i++) {
-        $progression = $i + $step;
+    //$step = rand(1, 10);
+    
+    for ($i = rand(0, 10), $step = rand(1, 10); $i <= 100; $i = $i + $step) {
+        $arrayOfProgression[] = $i;
     }
-    return $progression;
-}
+    print_r($arrayOfProgression);
+    $randKey = array_rand($arrayOfProgression);
+    $correctAnswer = $arrayOfProgression[$randKey];
+    $arrayOfProgression[$randKey] = '..';
+    echo $randKey, "\n", $arrayOfProgression[$randKey];
+    print_r($arrayOfProgression);
+    echo $correctAnswer;
+    }
 
 echo findMissingNumber();
