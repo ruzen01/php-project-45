@@ -10,11 +10,6 @@
 	"bin/brain-progression",
 	"bin/brain-prime"
 	],
-    "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "ruzen01",
