@@ -1,8 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-namespace BrainGames\Games;
-
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 if (file_exists($autoloadPath1)) {
@@ -11,59 +9,8 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function cli\line;
-use function cli\prompt;
+require_once __DIR__ . '/../src/Games/brain-gcd';
 
-function gcd()
-{
-    line('Welcome to the Brain Games!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Find the greatest common divisor of given numbers.');
+use BrainGames\Cli;
 
-    $correctAnswerCount = 0;
-    $consecutiveCorrectCount = 0;
-    $roundCount = 0;
-
-    function findGcd($randNumberFirst, $randNumberSecond)
-    {
-        $result = 0;
-        if (max($randNumberFirst, $randNumberSecond) % min($randNumberFirst, $randNumberSecond) == 0) {
-            return $result = min($randNumberFirst, $randNumberSecond);
-        }
-        return $result = findGcd(min($randNumberFirst, $randNumberSecond), max($randNumberFirst, $randNumberSecond) % min($randNumberFirst, $randNumberSecond));
-    }
-
-    while ($roundCount < 3) {
-        $randNumberFirst = rand(1, 25);
-        $randNumberSecond = rand(1, 25);
-
-        line("Question: {$randNumberFirst} {$randNumberSecond}");
-        $answer = prompt('Your answer');
-
-        if (!is_numeric($answer)) {
-            line("'$answer' is not a number. Please enter a number.");
-            continue;
-        }
-
-        $result = findGcd($randNumberFirst, $randNumberSecond);
-
-        if ($answer == $result) {
-            line("Correct!");
-            $correctAnswerCount++;
-            $consecutiveCorrectCount++;
-            $roundCount++;
-        } else {
-            line("'$answer' is wrong answer ;(. Correct answer was '$result'.\nLet's try again, $name!");
-            $consecutiveCorrectCount = 0;
-            return;
-        }
-
-        if ($consecutiveCorrectCount == 3) {
-            line("Congratulations, %s!", $name);
-            return;
-        }
-    }
-}
-
-gcd();
+Cli\gcd();
