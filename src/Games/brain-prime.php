@@ -5,23 +5,28 @@ namespace BrainGames\Cli;
 use function cli\line;
 use function cli\prompt;
 
-function findMissingNumber()
+namespace BrainGames\Cli;
+
+use function cli\line;
+use function cli\prompt;
+
+function isPrime(int $number)
 {
-    function isPrime(int $number)
-    {
-        if ($number < 2) {
-            return false;
-        }
-
-        for ($i = 2; $i <= sqrt($number); $i++) {
-            if ($number % $i === 0) {
-                return false;
-            }
-        }
-
-        return true;
+    if ($number < 2) {
+        return false;
     }
 
+    for ($i = 2; $i <= sqrt($number); $i++) {
+        if ($number % $i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function findMissingNumber()
+{
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
