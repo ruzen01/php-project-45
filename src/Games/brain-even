@@ -13,10 +13,10 @@ function checkEven()
     line("Hello, %s!", $name);
 
     line('Answer "yes" if the number is even, otherwise answer "no".');
-            
+
 $correctAnswerCount = 0;
 while($correctAnswerCount < 3) {
-    $randNumber = rand(0, 100);
+    $randNumber = rand(1, 100);
     line("Question: %s", $randNumber);
     $answer = prompt('Your answer');
 
