@@ -9,7 +9,7 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-require_once __DIR__ . '/../src/Games/brain-prime';
+require_once __DIR__ . '/../src/Games/brain-prime.php';
 
 use BrainGames\Cli;
 
