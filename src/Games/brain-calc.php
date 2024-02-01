@@ -26,15 +26,15 @@ function calc()
         $answer = prompt('Your answer');
 
         switch ($randOperator) {
-        case '+':
-            $result = $randNumberFirst + $randNumberSecond;
-            break;
-        case '-':
-            $result = $randNumberFirst - $randNumberSecond;
-            break;
-        case '*':
-            $result = $randNumberFirst * $randNumberSecond;
-            break;
+            case '+':
+                $result = $randNumberFirst + $randNumberSecond;
+                break;
+            case '-':
+                $result = $randNumberFirst - $randNumberSecond;
+                break;
+            case '*':
+                $result = $randNumberFirst * $randNumberSecond;
+                break;
         }
 
         if ($answer == $result) {

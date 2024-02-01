@@ -18,7 +18,6 @@ function findMissingNumber()
     line('What number is missing in the progression?');
 
     while ($roundCount < 3) {
-
         $arrayOfProgression = [];
         $length = rand(5, 10);
         for ($i = rand(0, 10), $step = rand(1, 10); count($arrayOfProgression) < $length; $i = $i + $step) {
