@@ -5,11 +5,6 @@ namespace BrainGames\Cli;
 use function cli\line;
 use function cli\prompt;
 
-namespace BrainGames\Cli;
-
-use function cli\line;
-use function cli\prompt;
-
 function isPrime(int $number)
 {
     if ($number < 2) {
