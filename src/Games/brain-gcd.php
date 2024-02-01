@@ -56,4 +56,3 @@ function findGreatCommonDivisor(int $randNumberFirst, int $randNumberSecond)
     }
     return $result = findGreatCommonDivisor(min($randNumberFirst, $randNumberSecond), max($randNumberFirst, $randNumberSecond) % min($randNumberFirst, $randNumberSecond));
 }
-
