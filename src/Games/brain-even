@@ -33,5 +33,6 @@ while($correctAnswerCount < 3) {
         $correctAnswerCount = 0;
     }
     
-    } line("Congratulations, %s!", $name);
+    } 
+    line("Congratulations, %s!", $name);
 }
