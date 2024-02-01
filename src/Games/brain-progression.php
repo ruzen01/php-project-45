@@ -7,7 +7,7 @@ use function cli\prompt;
 
 function findMissingNumber()
 {
-    
+
     $correctAnswerCount = 0;
     $consecutiveCorrectCount = 0;
     $roundCount = 0;
@@ -19,34 +19,34 @@ function findMissingNumber()
 
     while ($roundCount < 3) {
 
-    $arrayOfProgression = [];
-    $length = rand(5, 10);
-    for ($i = rand(0, 10), $step = rand(1, 10); count($arrayOfProgression) < $length; $i = $i + $step) {
-        $arrayOfProgression[] = $i;
-    }
-    
-    $randKey = array_rand($arrayOfProgression);
-    $invisNumber = $arrayOfProgression[$randKey];
-    $arrayOfProgression[$randKey] = '..';
-    
-    line("Question: %s", implode(' ', $arrayOfProgression));
-    $answer = prompt('Your answer');
+        $arrayOfProgression = [];
+        $length = rand(5, 10);
+        for ($i = rand(0, 10), $step = rand(1, 10); count($arrayOfProgression) < $length; $i = $i + $step) {
+            $arrayOfProgression[] = $i;
+        }
+
+        $randKey = array_rand($arrayOfProgression);
+        $invisNumber = $arrayOfProgression[$randKey];
+        $arrayOfProgression[$randKey] = '..';
+
+        line("Question: %s", implode(' ', $arrayOfProgression));
+        $answer = prompt('Your answer');
 
 
-if ($answer == $invisNumber) {
-    line("Correct!");
-    $correctAnswerCount++;
-    $consecutiveCorrectCount++;
-    $roundCount++;
-} else {
-    line("'$answer' is wrong answer ;(. Correct answer was '$invisNumber'.\nLet's try again, $name!");
-    $consecutiveCorrectCount = 0;
-    return;
-}
+        if ($answer == $invisNumber) {
+            line("Correct!");
+            $correctAnswerCount++;
+            $consecutiveCorrectCount++;
+            $roundCount++;
+        } else {
+            line("'$answer' is wrong answer ;(. Correct answer was '$invisNumber'.\nLet's try again, $name!");
+            $consecutiveCorrectCount = 0;
+            return;
+        }
 
-if ($consecutiveCorrectCount == 3) {
-    line("Congratulations, %s!", $name);
-    return;
-}
+        if ($consecutiveCorrectCount == 3) {
+            line("Congratulations, %s!", $name);
+            return;
+        }
     }
 }
