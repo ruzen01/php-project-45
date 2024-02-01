@@ -16,13 +16,13 @@ function gcd()
     $consecutiveCorrectCount = 0;
     $roundCount = 0;
 
-    function findGcd(int $randNumberFirst, int $randNumberSecond)
+    function findGreatCommonDivisor(int $randNumberFirst, int $randNumberSecond)
     {
         $result = 0;
         if (max($randNumberFirst, $randNumberSecond) % min($randNumberFirst, $randNumberSecond) == 0) {
             return $result = min($randNumberFirst, $randNumberSecond);
         }
-        return $result = findGcd(min($randNumberFirst, $randNumberSecond), max($randNumberFirst, $randNumberSecond) % min($randNumberFirst, $randNumberSecond));
+        return $result = findGreatCommonDivisor(min($randNumberFirst, $randNumberSecond), max($randNumberFirst, $randNumberSecond) % min($randNumberFirst, $randNumberSecond));
     }
 
     while ($roundCount < 3) {
@@ -37,7 +37,7 @@ function gcd()
             continue;
         }
 
-        $result = findGcd($randNumberFirst, $randNumberSecond);
+        $result = findGreatCommonDivisor($randNumberFirst, $randNumberSecond);
 
         if ($answer == $result) {
             line("Correct!");
