@@ -16,7 +16,7 @@ function gcd()
     $consecutiveCorrectCount = 0;
     $roundCount = 0;
 
-    function findGcd($randNumberFirst, $randNumberSecond)
+    function findGcd(int $randNumberFirst, int $randNumberSecond)
     {
         $result = 0;
         if (max($randNumberFirst, $randNumberSecond) % min($randNumberFirst, $randNumberSecond) == 0) {

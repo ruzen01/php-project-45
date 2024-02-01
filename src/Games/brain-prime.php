@@ -7,7 +7,7 @@ use function cli\prompt;
 
 function findMissingNumber()
 {
-    function isPrime($number)
+    function isPrime(int $number)
     {
         if ($number < 2) {
             return false;
