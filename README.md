@@ -1,4 +1,4 @@
-# BrainGames
+## BrainGames
 Project BrainGames on Hexlet for newbie PHP-developers.
 
 ### Hexlet tests and linter status:
