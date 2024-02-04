@@ -12,11 +12,9 @@ function calc()
     line("Hello, %s!", $name);
     line('What is the result of the expression?');
 
-    $correctAnswerCount = 0;
-    $consecutiveCorrectCount = 0;
-    $roundCount = 0;
+    $consecutiveCorrectAnswerCount = 0;
 
-    while ($roundCount < 3) {
+    while ($consecutiveCorrectAnswerCount < 3) {
         $randNumberFirst = rand(0, 10);
         $randNumberSecond = rand(0, 10);
         $operators = ['+', '-', '*'];
@@ -38,22 +36,14 @@ function calc()
         }
 
         if ($answer == $result) {
-            print_r("Correct!\n");
-            $correctAnswerCount++;
-            $consecutiveCorrectCount++;
-            $roundCount++;
+            line("Correct!");
+            $consecutiveCorrectAnswerCount++;
         } else {
             line("'$answer' is wrong answer ;(. Correct answer was '$result'.\nLet's try again, $name!");
-            $consecutiveCorrectCount = 0;
-            break; // Выход из цикла при неправильном ответе
-        }
-
-        if ($consecutiveCorrectCount == 3) {
-            break; // Выход из цикла при трех правильных ответах подряд
+            return;
         }
     }
 
-    if ($consecutiveCorrectCount == 3) {
-        line("Congratulations, %s!", $name);
-    }
+
+    line("Congratulations, %s!", $name);
 }
