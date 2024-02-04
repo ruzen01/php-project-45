@@ -20,7 +20,7 @@ function isPrime(int $number)
     return true;
 }
 
-function findMissingNumber()
+function findPrime()
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
