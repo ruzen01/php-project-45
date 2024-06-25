@@ -7,7 +7,7 @@ use function BrainGames\Engine\run;
 const DESCRIPTION = 'What number is missing in the progression?';
 const PROGRESSION_LENGTH = 10;
 
-function generateProgression($start, $step, $length)
+function generateProgression(int $start, int $step, int $length): array
 {
     $progression = [];
     for ($i = 0; $i < $length; $i++) {

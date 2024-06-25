@@ -6,7 +6,7 @@ use function BrainGames\Engine\run;
 
 const DESCRIPTION = 'What is the result of the expression?';
 
-function calculate($num1, $num2, $operator)
+function calculate(int $num1, int $num2, string $operator): int
 {
     switch ($operator) {
         case '+':
