@@ -13,11 +13,12 @@
 	"autoload": {
         "files": [
 			"src/Cli.php",
-			"src/Games/brain-calc.php",
-			"src/Games/brain-even.php",
-			"src/Games/brain-gcd.php",
-			"src/Games/brain-prime.php",
-			"src/Games/brain-progression.php"
+			"src/Engine.php",
+			"src/Games/Calc.php",
+			"src/Games/Even.php",
+			"src/Games/Gcd.php",
+			"src/Games/Prime.php",
+			"src/Games/Progression.php"
 		]
     },
     "authors": [
@@ -31,5 +32,10 @@
 	},
 	"require-dev": {
 	"squizlabs/php_codesniffer": "3.*"
-	}
+	},
+	
+		"scripts": {
+			"lint": "phpcs --standard=PSR12 src bin"
+		}
+	 
 }
