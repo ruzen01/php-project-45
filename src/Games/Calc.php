@@ -2,11 +2,11 @@
 
 namespace BrainGames\Games\Calc;
 
-use function BrainGames\Engine\run;
+use function BrainGames\Engine\runGame;
 
 const DESCRIPTION = 'What is the result of the expression?';
 
-function calculate(int $num1, int $num2, string $operator): int
+function calculateExpression(int $num1, int $num2, string $operator): int
 {
     switch ($operator) {
         case '+':
@@ -20,7 +20,7 @@ function calculate(int $num1, int $num2, string $operator): int
     }
 }
 
-function getGameData()
+function generateGameData(): array
 {
     $num1 = rand(1, 20);
     $num2 = rand(1, 20);
@@ -28,12 +28,12 @@ function getGameData()
     $operator = $operators[array_rand($operators)];
 
     $question = "{$num1} {$operator} {$num2}";
-    $correctAnswer = (string) calculate($num1, $num2, $operator);
+    $correctAnswer = (string) calculateExpression($num1, $num2, $operator);
 
     return [$question, $correctAnswer];
 }
 
-function calc()
+function playCalcGame(): void
 {
-    \BrainGames\Engine\run(DESCRIPTION, fn() => getGameData());
+    runGame(DESCRIPTION, 'BrainGames\Games\Calc\generateGameData');
 }
